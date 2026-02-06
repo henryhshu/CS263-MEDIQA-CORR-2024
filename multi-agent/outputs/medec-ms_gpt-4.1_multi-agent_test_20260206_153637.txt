@@ -1,0 +1,50 @@
+ms-test-17 1 4 "Mycobacterium avium complex is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 0 -1 NA
+ms-test-43 1 6 "Hemoglobin 14 g/dL"
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome."
+ms-test-67 1 3 "She is generally able to maintain her house, but her house appears more disorganized over the past 2 weeks."
+ms-test-68 1 17 "The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 1 5 "The patient is diagnosed with delirium after exam."
+ms-test-104 1 8 "The patient is diagnosed with Bartter syndrome based on the laboratory findings shown below:"
+ms-test-107 1 7 "The patient is diagnosed with alpha-1 antitrypsin deficiency after a complete blood count reveals the following findings:"
+ms-test-120 0 -1 NA
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 0 -1 NA
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation."
+ms-test-207 0 -1 NA
+ms-test-217 1 7 "The patient is empirically started on 3 units of uncrossmatched O-negative blood and pantoprazole."
+ms-test-234 1 2 "Patient is diagnosed with X-linked agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 0 -1 NA
+ms-test-265 0 -1 NA
+ms-test-267 0 -1 NA
+ms-test-288 1 8 "Elimination of all dairy products was not recommended."
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 1 8 "The patient is started on induction chemotherapy and scheduled for a modified radical mastectomy."
+ms-test-352 1 5 "Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 0 -1 NA
+ms-test-380 0 -1 NA
+ms-test-386 1 11 "Nerve conduction studies are performed, and 1270 mL of urine is collected after placement of a Foley catheter."
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "Corticosteroids are prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Quetiapine was started."
+ms-test-464 0 -1 NA
+ms-test-465 1 14 "Oral nystatin suspension is prescribed."
+ms-test-492 1 4 "She gives a printed list of such drugs, including efavirenz and delavirdine, to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says he may prescribe bupropion for the patient after a full neurological workup is performed."
+ms-test-503 1 2 "Patient is given macrolide antibiotics after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 0 -1 NA
+ms-test-570 1 6 "Oral cephalexin is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

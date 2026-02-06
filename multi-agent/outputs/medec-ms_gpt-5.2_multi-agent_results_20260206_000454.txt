@@ -1,0 +1,3 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 1 1 "Laboratory analysis reveals electrolyte abnormalities."
+ms-test-29 1 21 "Diffuse cutaneous systemic sclerosis is suspected."

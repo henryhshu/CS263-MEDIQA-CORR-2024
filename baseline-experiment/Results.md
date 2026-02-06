@@ -1,6 +1,7 @@
 # Baseline experiment results
 
 ## Prompt
+The prompt was used exactly as described in the paper(https://aclanthology.org/2024.clinicalnlp-1.57.pdf)
 ```
 system = """
 The following is a medical narrative about a patient. You are a skilled medical doctor reviewing the clinical text. The text is either correct or contains one error.
@@ -11,6 +12,7 @@ followed by a space, and a corrected version of the sentence.
 ```
 
 ## Result
+The evaluation results are based on a random sample of 50 data samples to reduce API usage costs.
 | Model | Error Flag Accuracy | Error Sentence Detection Accuracy | ROUGE1 | BERTSCORE | BLEURT | AggregateComposite | AggregateScore |
 |-----|---|---|---|---|---|---|---|
 | GPT-5 | 0.66 | 0.34 | 0.5293 | 0.5669 | 0.6106 | 0.4727 | 0.5689 |

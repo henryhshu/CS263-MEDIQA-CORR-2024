@@ -168,7 +168,7 @@ def compute_nlg_metrics(references, predictions, counters):
     print("Computing BERTScore (this may take a few minutes)...")
     _, _, bertScore_F1 = bertscore(
         predictions, references, 
-        model_type='roberta-large', 
+        model_type='microsoft/deberta-xlarge-mnli', 
         lang='en', 
         device='cpu',
         verbose=True, 

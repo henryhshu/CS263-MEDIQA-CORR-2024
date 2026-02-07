@@ -1,0 +1,10 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "| Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 6 "| Hemoglobin 14 g/dL"
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome."
+ms-test-67 1 15 "| Her recall of 0/3 words after 5 minutes indicates significant memory impairment, consistent with dementia."
+ms-test-68 1 17 "The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 1 3 "| Despite these behaviors, he is not meeting his language goals for his age (single word use)."

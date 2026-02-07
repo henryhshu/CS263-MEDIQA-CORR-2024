@@ -15,5 +15,6 @@ followed by a space, and a corrected version of the sentence.
 The evaluation results are based on a random sample of 50 data samples to reduce API usage costs.
 | Model | Error Flag Accuracy | Error Sentence Detection Accuracy | ROUGE1 | BERTSCORE | BLEURT | AggregateComposite | AggregateScore |
 |-----|---|---|---|---|---|---|---|
-| GPT-5 | 0.66 | 0.34 | 0.5293 | 0.5669 | 0.6106 | 0.4727 | 0.5689 |
-| GPT-4.1 | 0.76 | 0.56 | 0.6337 | 0.6030 | 0.6945 | 0.6032 | 0.6437 |
+| GPT-5 | 0.66 | 0.5 | 0.5310 | 0.5700 | 0.6149 | 0.4289 | 0.5720 |
+| GPT-4.1 | 0.76 | 0.74 | 0.6330 | 0.6059 | 0.6959 | 0.6038 | 0.6449 |
+

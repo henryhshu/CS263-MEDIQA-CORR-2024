@@ -1,0 +1,50 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 0 -1 NA
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome (gastrinoma)."
+ms-test-67 1 15 "The patient is diagnosed with delirium after she can recall 0/3 words after 5 minutes and exhibits fluctuating attention and altered consciousness."
+ms-test-68 1 17 "The patient is diagnosed with dementia."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 1 5 "The patient is diagnosed with delirium."
+ms-test-104 1 8 "Patient is diagnosed with Gitelman syndrome given laboratory findings shown below:"
+ms-test-107 1 7 "Patient is diagnosed with alpha-1 antitrypsin deficiency after a complete blood count and relevant investigations are significant for the following:"
+ms-test-120 0 -1 NA
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 0 -1 NA
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation."
+ms-test-207 1 23 "The patient is diagnosed with Sjogren's syndrome."
+ms-test-217 0 -1 NA
+ms-test-234 1 2 "Patient is diagnosed with X-linked agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "Pericardial window is performed after observing sinus tachycardia on the patient's telemetry, and you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 0 -1 NA
+ms-test-267 0 -1 NA
+ms-test-288 0 -1 NA
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 0 -1 NA
+ms-test-352 1 5 "Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 1 2 "Immunosuppressive therapy, such as glucocorticoids and cyclophosphamide or rituximab, is advised after laboratory results show an elevated level of cytoplasmic antineutrophil cytoplasmic antibody."
+ms-test-380 0 -1 NA
+ms-test-386 0 -1 NA
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "High-dose corticosteroids are prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Starting sertraline."
+ms-test-464 0 -1 NA
+ms-test-465 1 14 "Empiric oral fluconazole should be prescribed instead of oral nystatin for suspected esophageal candidiasis in patients with advanced HIV/AIDS."
+ms-test-492 1 4 "She gives a printed list of such drugs including efavirenz and delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says bupropion is contraindicated in patients with a history of seizures and should not be prescribed to this patient."
+ms-test-503 1 2 "Patient is given a macrolide antibiotic, such as azithromycin, after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 21 "The vasopressor is being tapered."
+ms-test-570 1 6 "Oral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

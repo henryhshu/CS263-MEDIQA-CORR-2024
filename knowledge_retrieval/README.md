@@ -123,4 +123,9 @@ The RxNorm API is free to use and does not require an API key. See the [Terms of
    - SNOMED CT - For disease/condition terminology
    - ICD-10 - For diagnosis codes
    - UpToDate - For clinical guidelines (requires license)
+  
+| submission_file | Error Flags Accuracy | Error Sentence Detection Accuracy | ROUGE1 | BERTSCORE | BLEURT | AggregateComposite | AggregateScore |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gemini_rxnorm_pubmedbert | 0.76 | 0.64 | 0.5825 | 0.6162 | 0.6410 | 0.5512 | 0.6132 |
+| gemini_baseline | 0.68 | 0.58 | 0.5830 | 0.6023 | 0.6374 | 0.4681 | 0.6076 |
 

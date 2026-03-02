@@ -1,6 +1,22 @@
-google-generativeai
+# Core / shared
 python-dotenv
 datasets
 requests
+numpy
+pandas
+
+# LLM providers
+google-generativeai
+openai
+
+# Pipeline - NER drug extraction + BLEURT evaluation
 torch
 transformers
+
+# Multi-agent orchestration
+pydantic
+
+# Evaluation metrics
+rouge
+bert-score
+scipy

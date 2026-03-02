@@ -19,6 +19,12 @@ from dataclasses import dataclass, field
 from functools import lru_cache
 
 import requests
+import torch
+from transformers import (
+    AutoTokenizer,
+    AutoModelForTokenClassification,
+    pipeline,
+)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -385,6 +391,244 @@ class DrugNameExtractor:
 
 
 # =============================================================================
+# PubMedBERT NER Drug Extractor
+# =============================================================================
+
+# Default PubMedBERT model for chemical/drug NER
+DEFAULT_NER_MODEL = "pruas/BENT-PubMedBERT-NER-Chemical"
+
+
+class PubMedBERTDrugExtractor:
+    """
+    Extracts drug/chemical names from medical text using a PubMedBERT model
+    fine-tuned for biomedical NER.
+    
+    Uses the pruas/BENT-PubMedBERT-NER-Chemical model by default, which was
+    trained on 15 biomedical NER datasets including BC5CDR, DDI corpus,
+    CHEMDNER, NLM-CHEM, and more.
+    """
+    
+    def __init__(
+        self,
+        rxnorm_client: Optional['RxNormClient'] = None,
+        model_name: str = DEFAULT_NER_MODEL,
+        confidence_threshold: float = 0.5,
+        device: Optional[int] = None,
+    ):
+        """
+        Initialize the PubMedBERT drug extractor.
+        
+        Args:
+            rxnorm_client: Optional RxNorm client for validation
+            model_name: HuggingFace model ID for the NER model
+            confidence_threshold: Minimum confidence score for entity extraction
+            device: Device to run inference on (-1 for CPU, 0+ for GPU, None for auto)
+        """
+        self.rxnorm_client = rxnorm_client or RxNormClient()
+        self.confidence_threshold = confidence_threshold
+        self.model_name = model_name
+        
+        # Auto-detect device
+        if device is None:
+            if torch.cuda.is_available():
+                device = 0
+            elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+                device = "mps"
+            else:
+                device = -1  # CPU
+        
+        logger.info(f"Loading PubMedBERT NER model: {model_name}")
+        logger.info(f"Using device: {device}")
+        
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModelForTokenClassification.from_pretrained(model_name)
+        
+        self.ner_pipeline = pipeline(
+            "ner",
+            model=self.model, 
+            tokenizer=self.tokenizer,
+            aggregation_strategy="first",
+            device=device,
+        )
+        
+        logger.info("PubMedBERT NER model loaded successfully")
+
+    def extract_candidates(self, text: str) -> Set[str]:
+        """
+        Extract potential drug name candidates from text using PubMedBERT NER.
+        
+        Args:
+            text: Medical text to analyze
+            
+        Returns:
+            Set of candidate drug names
+        """
+        candidates = set()
+        
+        # Split long texts into chunks to handle model max length (512 tokens)
+        chunks = self._split_text(text, max_length=400)
+        
+        for chunk in chunks:
+            try:
+                entities = self.ner_pipeline(chunk)
+            except Exception as e:
+                logger.warning(f"NER inference failed on chunk: {e}")
+                continue
+            
+            for entity in entities:
+                # Accept any entity group (the model labels chemicals/drugs)
+                score = entity.get("score", 0)
+                word = entity.get("word", "").strip()
+                
+                if score >= self.confidence_threshold and self._is_valid_entity(word):
+                    # Clean up tokenizer artifacts
+                    cleaned = self._clean_entity(word)
+                    if cleaned:
+                        candidates.add(cleaned.lower())
+        
+        return candidates
+    
+    def _split_text(self, text: str, max_length: int = 400) -> List[str]:
+        """
+        Split text into chunks that fit within the model's token limit.
+        Splits on sentence boundaries when possible.
+        
+        Args:
+            text: Text to split
+            max_length: Approximate maximum number of tokens per chunk
+            
+        Returns:
+            List of text chunks
+        """
+        # Rough estimate: 1 token ≈ 4 characters for medical text
+        max_chars = max_length * 4
+        
+        if len(text) <= max_chars:
+            return [text]
+        
+        chunks = []
+        sentences = re.split(r'(?<=[.!?])\s+', text)
+        current_chunk = ""
+        
+        for sentence in sentences:
+            if len(current_chunk) + len(sentence) + 1 > max_chars:
+                if current_chunk:
+                    chunks.append(current_chunk.strip())
+                current_chunk = sentence
+            else:
+                current_chunk = current_chunk + " " + sentence if current_chunk else sentence
+        
+        if current_chunk:
+            chunks.append(current_chunk.strip())
+        
+        return chunks if chunks else [text]
+    
+    def _is_valid_entity(self, word: str) -> bool:
+        """
+        Check if an extracted entity is a valid drug candidate.
+        
+        Args:
+            word: Extracted entity text
+            
+        Returns:
+            True if the entity is a valid drug name candidate
+        """
+        if not word or len(word) < 2:
+            return False
+        
+        # Filter out purely numeric entities
+        if word.replace('.', '').replace('-', '').isdigit():
+            return False
+        
+        # Filter out single characters
+        cleaned = word.strip()
+        if len(cleaned) < 2:
+            return False
+        
+        # Filter out drug class terms and generic chemical fragments
+        # that the NER model sometimes extracts instead of actual drug names
+        NER_EXCLUDE = {
+            # Drug class terms (not specific drugs)
+            'ace', 'inhibitor', 'inhibitors', 'blocker', 'blockers',
+            'antagonist', 'antagonists', 'agonist', 'agonists',
+            'receptor', 'receptors', 'antibiotics', 'antibiotic',
+            'analgesic', 'analgesics', 'nsaid', 'nsaids',
+            'anticoagulant', 'anticoagulants', 'antiplatelet',
+            'antihypertensive', 'antihypertensives',
+            'diuretic', 'diuretics', 'steroid', 'steroids',
+            'statin', 'statins', 'opioid', 'opioids',
+            # Common chemical elements/compounds (usually not drug names)
+            'calcium', 'sodium', 'potassium', 'magnesium', 'iron',
+            'chloride', 'phosphate', 'sulfate', 'bicarbonate',
+            'gluconate', 'acetate', 'citrate', 'oxide',
+            'oxygen', 'nitrogen', 'carbon', 'hydrogen',
+            # Generic medical terms NER sometimes picks up
+            'saline', 'dextrose', 'water', 'solution',
+            'tablet', 'capsule', 'injection', 'infusion',
+        }
+        if cleaned.lower() in NER_EXCLUDE:
+            return False
+        
+        return True
+    
+    def _clean_entity(self, word: str) -> str:
+        """
+        Clean up entity text from tokenizer artifacts.
+        
+        Args:
+            word: Raw entity text from the NER pipeline
+            
+        Returns:
+            Cleaned entity text
+        """
+        # Remove leading/trailing punctuation and whitespace
+        cleaned = word.strip()
+        cleaned = re.sub(r'^[^a-zA-Z0-9]+', '', cleaned)
+        cleaned = re.sub(r'[^a-zA-Z0-9]+$', '', cleaned)
+        
+        # Remove tokenizer special tokens
+        cleaned = cleaned.replace('[UNK]', '').replace('[SEP]', '').replace('[CLS]', '')
+        cleaned = cleaned.replace('##', '')
+        
+        return cleaned.strip()
+    
+    def extract_and_validate(self, text: str, validate: bool = True) -> List[str]:
+        """
+        Extract drug names using PubMedBERT NER and optionally validate against RxNorm.
+        
+        Args:
+            text: Medical text to analyze
+            validate: Whether to validate candidates against RxNorm
+            
+        Returns:
+            List of validated drug names
+        """
+        candidates = self.extract_candidates(text)
+        logger.info(f"PubMedBERT NER extracted {len(candidates)} candidates: {candidates}")
+        
+        if not validate:
+            return sorted(candidates)
+        
+        validated = []
+        for candidate in candidates:
+            rxcui = self.rxnorm_client.find_rxcui_by_string(candidate)
+            if rxcui:
+                validated.append(candidate)
+                logger.debug(f"  ✓ '{candidate}' validated (RxCUI: {rxcui})")
+            else:
+                # Try approximate matching
+                matches = self.rxnorm_client.get_approximate_match(candidate, max_entries=1)
+                if matches and float(matches[0].get('score', 0)) > 0:
+                    validated.append(candidate)
+                    logger.debug(f"  ✓ '{candidate}' validated via approximate match")
+                else:
+                    logger.debug(f"  ✗ '{candidate}' not found in RxNorm")
+        
+        logger.info(f"Validated {len(validated)}/{len(candidates)} drug candidates")
+        return sorted(validated)
+
+
+# =============================================================================
 # Drug Information Retriever
 # =============================================================================
 
@@ -537,11 +781,36 @@ class DrugInfoRetriever:
 class RxNormRAGContext:
     """Builds augmented prompts with RxNorm drug context."""
     
-    def __init__(self):
-        """Initialize the RAG context builder."""
+    def __init__(self, extractor_type: str = "pubmedbert", **extractor_kwargs):
+        """
+        Initialize the RAG context builder.
+        
+        Args:
+            extractor_type: Type of drug extractor to use.
+                - "pubmedbert": PubMedBERT NER model (default, higher accuracy)
+                - "regex": Legacy regex-based extractor (faster, no model download)
+            **extractor_kwargs: Additional kwargs passed to the extractor constructor.
+                For PubMedBERT: model_name, confidence_threshold, device
+                For regex: (none)
+        """
         self.client = RxNormClient()
-        self.extractor = DrugNameExtractor(self.client)
+        self.extractor_type = extractor_type
+        
+        if extractor_type == "pubmedbert":
+            self.extractor = PubMedBERTDrugExtractor(
+                rxnorm_client=self.client,
+                **extractor_kwargs
+            )
+        elif extractor_type == "regex":
+            self.extractor = DrugNameExtractor(self.client)
+        else:
+            raise ValueError(
+                f"Unknown extractor_type: '{extractor_type}'. "
+                f"Use 'pubmedbert' or 'regex'."
+            )
+        
         self.retriever = DrugInfoRetriever(self.client)
+        logger.info(f"RxNormRAGContext initialized with '{extractor_type}' extractor")
         
     def extract_drugs_from_text(self, text: str, validate: bool = True) -> List[str]:
         """
@@ -643,17 +912,18 @@ def lookup_drug(name: str) -> Optional[DrugInfo]:
     return result.drug_info if result.found else None
 
 
-def get_drug_context_for_text(text: str) -> str:
+def get_drug_context_for_text(text: str, extractor_type: str = "pubmedbert") -> str:
     """
     Extract drugs from text and return context string.
     
     Args:
         text: Medical text to analyze
+        extractor_type: "pubmedbert" or "regex"
         
     Returns:
         Formatted drug context string
     """
-    rag = RxNormRAGContext()
+    rag = RxNormRAGContext(extractor_type=extractor_type)
     drugs = rag.extract_drugs_from_text(text)
     return rag.get_drug_context(drugs)
 
@@ -663,10 +933,30 @@ def get_drug_context_for_text(text: str) -> str:
 # =============================================================================
 
 if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="RxNorm RAG Module Demo")
+    parser.add_argument(
+        "--extractor", "-e", type=str, default="pubmedbert",
+        choices=["pubmedbert", "regex"],
+        help="Drug name extractor to use (default: pubmedbert)"
+    )
+    parser.add_argument(
+        "--compare", action="store_true",
+        help="Compare regex vs PubMedBERT extraction side-by-side"
+    )
+    args = parser.parse_args()
+    
     # Demo usage
     print("=" * 60)
     print("RxNorm RAG Module Demo")
     print("=" * 60)
+    
+    sample_text = """
+    The patient was prescribed metformin 500mg twice daily for diabetes management.
+    She was also given lisinopril 10mg for hypertension and atorvastatin 20mg for 
+    cholesterol. The patient reports taking ibuprofen occasionally for headaches.
+    """
     
     # Test drug lookup
     print("\n1. Testing single drug lookup:")
@@ -677,32 +967,51 @@ if __name__ == "__main__":
     else:
         print("Drug not found")
     
-    # Test text extraction
-    print("\n2. Testing drug extraction from medical text:")
-    print("-" * 40)
-    sample_text = """
-    The patient was prescribed metformin 500mg twice daily for diabetes management.
-    She was also given lisinopril 10mg for hypertension and atorvastatin 20mg for 
-    cholesterol. The patient reports taking ibuprofen occasionally for headaches.
-    """
-    
-    rag = RxNormRAGContext()
-    drugs = rag.extract_drugs_from_text(sample_text)
-    print(f"Extracted drugs: {drugs}")
-    
-    # Test context building
-    print("\n3. Testing context building:")
-    print("-" * 40)
-    context = rag.get_drug_context(drugs[:3])  # Limit for demo
-    print(context)
-    
-    # Test augmented prompt
-    print("\n4. Testing augmented prompt building:")
-    print("-" * 40)
-    system_prompt = "You are a medical expert reviewing clinical text for errors."
-    aug_system, user_prompt, extracted = rag.build_augmented_prompt(
-        sample_text, 
-        system_prompt
-    )
-    print(f"Extracted drugs: {extracted}")
-    print(f"\nAugmented system prompt:\n{aug_system[:500]}...")
+    if args.compare:
+        # Side-by-side comparison
+        print("\n2. COMPARISON: Regex vs PubMedBERT extraction")
+        print("=" * 60)
+        
+        print("\n  [Regex extractor]")
+        print("  " + "-" * 38)
+        regex_rag = RxNormRAGContext(extractor_type="regex")
+        regex_drugs = regex_rag.extract_drugs_from_text(sample_text)
+        print(f"  Extracted drugs: {regex_drugs}")
+        
+        print("\n  [PubMedBERT NER extractor]")
+        print("  " + "-" * 38)
+        bert_rag = RxNormRAGContext(extractor_type="pubmedbert")
+        bert_drugs = bert_rag.extract_drugs_from_text(sample_text)
+        print(f"  Extracted drugs: {bert_drugs}")
+        
+        # Show differences
+        regex_set = set(regex_drugs)
+        bert_set = set(bert_drugs)
+        print(f"\n  Only in regex:     {regex_set - bert_set or '(none)'}")
+        print(f"  Only in PubMedBERT: {bert_set - regex_set or '(none)'}")
+        print(f"  In both:           {regex_set & bert_set or '(none)'}")
+    else:
+        # Standard demo with selected extractor
+        print(f"\n2. Testing drug extraction ({args.extractor}):")
+        print("-" * 40)
+        
+        rag = RxNormRAGContext(extractor_type=args.extractor)
+        drugs = rag.extract_drugs_from_text(sample_text)
+        print(f"Extracted drugs: {drugs}")
+        
+        # Test context building
+        print("\n3. Testing context building:")
+        print("-" * 40)
+        context = rag.get_drug_context(drugs[:3])  # Limit for demo
+        print(context)
+        
+        # Test augmented prompt
+        print("\n4. Testing augmented prompt building:")
+        print("-" * 40)
+        system_prompt = "You are a medical expert reviewing clinical text for errors."
+        aug_system, user_prompt, extracted = rag.build_augmented_prompt(
+            sample_text, 
+            system_prompt
+        )
+        print(f"Extracted drugs: {extracted}")
+        print(f"\nAugmented system prompt:\n{aug_system[:500]}...")

@@ -2,3 +2,5 @@ google-generativeai
 python-dotenv
 datasets
 requests
+torch
+transformers

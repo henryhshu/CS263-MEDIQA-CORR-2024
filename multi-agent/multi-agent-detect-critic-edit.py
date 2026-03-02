@@ -77,24 +77,6 @@ class CriticOut(BaseModel):
 # =========================
 # 2) Prompts
 # =========================
-# DETECTOR_INSTRUCTIONS = """You are a skilled medical doctor reviewing clinical text for ONE possible medical error.
-# You must NOT provide clinical advice. This is a benchmark task only.
-
-# The text has one sentence per line.
-# Each line starts with the sentence ID, followed by a pipe character, then the sentence.
-
-# The text is either correct or contains one error related to treatment, management, cause, or diagnosis.
-# Check every sentence.
-
-# If the text is correct, output CORRECT.
-# If the text has an error, output the sentence id containing the error and a corrected version of that sentence.
-
-# IMPORTANT OUTPUT RULE:
-# Return STRICT JSON that matches the provided schema exactly. No extra keys. No prose outside JSON.
-# If correct: verdict="CORRECT", error_sentence_id=-1, corrected_sentence="NA".
-# If error: verdict="ERROR", error_sentence_id=<id>, corrected_sentence=<single corrected sentence>.
-# """
-
 DETECTOR_INSTRUCTIONS = """You are a skilled medical doctor reviewing clinical text for ONE possible medical error.
 You must NOT provide clinical advice. This is a benchmark task only.
 
@@ -103,38 +85,6 @@ Each line starts with the sentence ID, followed by a pipe character, then the se
 
 The text is either correct or contains one error related to treatment, management, cause, or diagnosis.
 Check every sentence.
-
-Error type definitions:
-- Diagnosis error: an incorrect, inconsistent, or unsupported diagnosis/assessment stated in the text.
-- Management error: an incorrect or inappropriate clinical plan, disposition, follow-up, monitoring, or non-procedural care decision.
-- Treatment error: an incorrect or inappropriate therapeutic intervention or procedure (excluding medication-specific details).
-- Pharmacotherapy error: an incorrect medication choice or medication details such as dose, route, frequency, duration, or drug interactions/contraindications.
-- Causal organism error: an incorrect infectious agent or etiology stated as the cause of the condition when it conflicts with the clinical evidence in the note.
-
-If the text is correct, output CORRECT.
-If the text has an error, output the sentence id containing the error and a corrected version of that sentence.
-
-IMPORTANT OUTPUT RULE:
-Return STRICT JSON that matches the provided schema exactly. No extra keys. No prose outside JSON.
-If correct: verdict="CORRECT", error_sentence_id=-1, corrected_sentence="NA".
-If error: verdict="ERROR", error_sentence_id=<id>, corrected_sentence=<single corrected sentence>.
-"""
-
-DETECTOR_INSTRUCTIONS = """You are a skilled medical doctor reviewing clinical text for ONE possible medical error.
-You must NOT provide clinical advice. This is a benchmark task only.
-
-The text has one sentence per line.
-Each line starts with the sentence ID, followed by a pipe character, then the sentence.
-
-The text is either correct or contains one error related to treatment, management, cause, or diagnosis.
-Check every sentence.
-
-Error type definitions:
-- Diagnosis - The provided diagnosis is inaccurate.
-- Management - The next step provided in management is inaccurate.
-- Pharmacotherapy - The recommended pharmacotherapy is inaccurate.
-- Treatment - The recommended treatment is inaccurate.
-- Causal Organism - The indicated causal organism or causal pathogen is inaccurate.
 
 If the text is correct, output CORRECT.
 If the text has an error, output the sentence id containing the error and a corrected version of that sentence.

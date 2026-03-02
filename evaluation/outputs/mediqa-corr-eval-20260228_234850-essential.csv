@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+../baseline-experiment/outputs/medec-ms_o1_results_20260228_233718.txt,0.82,0.72,0.6303,0.6585,0.6703,0.6396,0.6531

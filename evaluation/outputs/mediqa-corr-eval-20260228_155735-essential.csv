@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+../multi-agent/outputs/medec-ms_gpt-5.2-pro_multi-agent_test_20260228_143115.txt,0.78,0.7,0.6415,0.6957,0.6938,0.612,0.677

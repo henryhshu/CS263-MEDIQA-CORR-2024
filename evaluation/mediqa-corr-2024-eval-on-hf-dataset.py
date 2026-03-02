@@ -34,7 +34,7 @@ tf.config.set_visible_devices([], 'GPU')
 # Parsing Funcs #
 #################
 BLEURT_CKPT_PATH = "/home/heewon/workspaces/courses/cs263nlp-26w/bleurt/BLEURT-20"
-
+BLEURT_CKPT_PATH = "../../bleurt/BLEURT-20"
 def parse_reference_file(filepath):
     """Parsing reference file path.
 

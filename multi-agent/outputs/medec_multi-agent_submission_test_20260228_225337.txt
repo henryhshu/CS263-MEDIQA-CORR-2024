@@ -1,0 +1,50 @@
+ms-test-17 1 4 "An opportunistic mycobacterial infection is suspected."
+ms-test-22 1 2 "The child is suspected to have severe combined immunodeficiency syndrome after examination of his serum shows decreased levels of IgG and CT scan reveals the absence of a thymus, in the setting of recurrent Pseudomonas and Candida infections."
+ms-test-29 1 21 "Systemic scleroderma (systemic sclerosis) is suspected."
+ms-test-43 0 -1 NA
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 12 "Upper gastrointestinal endoscopy reveals multiple gastric ulcers."
+ms-test-67 1 15 "The patient is diagnosed with dementia after she can recall 0/3 words after 5 minutes."
+ms-test-68 1 17 "The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 1 7 "Differential diagnosis includes gastroesophageal reflux disease with esophagitis."
+ms-test-98 1 5 "The patient is diagnosed with delirium after exam."
+ms-test-104 1 3 "His mother adds that, recently, the patient constantly wakes up in the night due to muscle cramps and pain."
+ms-test-107 1 5 "The chest radiograph shows evidence of diffuse bronchiectasis."
+ms-test-120 1 7 "Patient is diagnosed with dermatomyositis based on her clinical presentation after labs are drawn; a complete blood count and basic metabolic panel are normal."
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 1 6 "Serous pericarditis secondary to systemic lupus erythematosus (SLE) is diagnosed."
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation."
+ms-test-207 1 23 "The patient is diagnosed with Sjogren's syndrome."
+ms-test-217 0 -1 NA
+ms-test-234 1 2 "Patient is diagnosed with agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "While observing sinus tachycardia on the patient's telemetry after the pericardial window is performed, you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 1 10 "On follow-up, folate is administered when her laboratory parameters show no interval change in her MCV or platelet level."
+ms-test-267 1 3 "Even though you have been this patient's physician for 20 years, you continue to treat him."
+ms-test-288 0 -1 NA
+ms-test-305 1 4 "Patient with alcoholic cirrhosis is started on combined vasoactive and endoscopic therapy after he is noted to have jaundice, splenomegaly, and multiple spider angiomas over his chest."
+ms-test-331 1 4 "The lesion is diagnosed as squamous cell carcinoma, and the patient undergoes an initial excision."
+ms-test-344 1 8 "The patient is scheduled for a modified radical mastectomy."
+ms-test-352 1 5 "Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 0 -1 NA
+ms-test-380 1 3 "Upon further questioning, the patient confesses that he is attracted to his physician and says \"You are the only one in the world who understands me\"."
+ms-test-386 1 0 "A 19-year-old man presents with a 10-day history of progressive lower back pain and leg weakness, followed by severe lower abdominal pain for the past 12 hours."
+ms-test-391 1 0 "A 69-year-old man presents to his primary care physician for evaluation of 2 prior episodes of dizziness while watching television."
+ms-test-414 1 9 "A brain MRI shows no foci of hyperintensity in the periventricular and juxtacortical regions."
+ms-test-444 1 7 "He is prescribed an appropriate medication called cimetidine for his symptoms and is told to follow up in 2 weeks."
+ms-test-454 1 7 "Starting treatment for anxiety."
+ms-test-464 1 6 "At her follow-up with the oncologist, they subsequently plan to start the patient on a highly emetogenic chemotherapeutic regimen."
+ms-test-465 1 2 "His past medical history is significant for HIV/AIDS."
+ms-test-492 1 3 "She also tells the patient that certain antiretroviral drugs, if taken during pregnancy, may increase the risk of birth defects in the fetus."
+ms-test-494 1 9 "The physician says he may prescribe bupropion for the patient after a full evaluation is performed."
+ms-test-503 0 -1 NA
+ms-test-504 1 1 "A chest radiograph (Figure A) demonstrates a streaky infiltrate in her right lung that appears much worse than the symptoms she is currently experiencing."
+ms-test-525 1 21 "The toxic drugs are ruled out."
+ms-test-570 0 -1 NA
+ms-test-585 1 5 "On exam, the patient's lower legs (below knee) have glossy skin with loss of hair, and lifestyle modifications are recommended."

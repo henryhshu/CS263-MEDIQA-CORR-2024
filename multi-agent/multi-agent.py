@@ -43,7 +43,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Literal, Optional, Tuple
 from datetime import datetime
 
-from openai import OpenAI
+from openai import BadRequestError, OpenAI
 from pydantic import BaseModel, Field, ValidationError
 from datasets import load_dataset
 
@@ -241,21 +241,65 @@ def json_schema_format(name: str, schema: Dict[str, Any]) -> Dict[str, Any]:
 class LLMConfig:
     # Use a model snapshot that supports Structured Outputs (json_schema strict).
     model: str = "gpt-4o-2024-08-06"
-    temperature: float = 0.0
+    # Some reasoning models do not accept `temperature`.
+    # - None: do not send temperature
+    # - float: send it unless `supports_temperature=False`
+    temperature: Optional[float] = 0.0
+    # Set True/False to force behavior. None means "auto": try with temperature,
+    # and transparently retry without it if the model rejects the parameter.
+    supports_temperature: Optional[bool] = None
+    # Reasoning models can use effort controls (e.g., low/medium/high).
+    reasoning_effort: Optional[Literal["low", "medium", "high"]] = None
     max_output_tokens: int = 600
+
+    @classmethod
+    def for_reasoning(
+        cls,
+        model: str = "gpt-5.2-pro",
+        max_output_tokens: int = 600,
+        reasoning_effort: Literal["low", "medium", "high"] = "medium",
+    ) -> "LLMConfig":
+        """Preset for reasoning models that typically do not accept temperature."""
+        return cls(
+            model=model,
+            temperature=None,
+            supports_temperature=False,
+            reasoning_effort=reasoning_effort,
+            max_output_tokens=max_output_tokens,
+        )
 
 
 def call_llm(system_prompt: str, user_prompt: str, cfg: LLMConfig, schema_name: str, schema: Dict[str, Any]) -> str:
-    resp = client.responses.create(
-        model=cfg.model,
-        input=[
+    base_kwargs: Dict[str, Any] = {
+        "model": cfg.model,
+        "input": [
             {"role": "developer", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=cfg.temperature,
-        max_output_tokens=cfg.max_output_tokens,
-        text={"format": json_schema_format(schema_name, schema)},
-    )
+        "max_output_tokens": cfg.max_output_tokens,
+        "text": {"format": json_schema_format(schema_name, schema)},
+    }
+
+    use_temperature = cfg.temperature is not None and cfg.supports_temperature is not False
+    if use_temperature:
+        base_kwargs["temperature"] = cfg.temperature
+    if cfg.reasoning_effort is not None:
+        base_kwargs["reasoning"] = {"effort": cfg.reasoning_effort}
+
+    try:
+        resp = client.responses.create(**base_kwargs)
+    except BadRequestError as e:
+        # Auto-fallback for reasoning models that reject `temperature`.
+        msg = str(e).lower()
+        temp_not_supported = (
+            "temperature" in msg and ("unsupported" in msg or "not supported" in msg or "unknown parameter" in msg)
+        )
+        if use_temperature and cfg.supports_temperature is None and temp_not_supported:
+            retry_kwargs = dict(base_kwargs)
+            retry_kwargs.pop("temperature", None)
+            resp = client.responses.create(**retry_kwargs)
+        else:
+            raise
     return resp.output_text.strip()
 
 
@@ -530,14 +574,15 @@ def load_indices(path: str):
 if __name__ == "__main__":
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = f"logs/med_error_run_{timestamp}.jsonl"
-    model = "gpt-4.1"
-    cfg = LLMConfig(model=model, temperature=0.0, max_output_tokens=600)
+    #model = "gpt-4.1"
+    model = "gpt-5.2-pro"
+    cfg = LLMConfig.for_reasoning(model=model, max_output_tokens=600, reasoning_effort="medium")
     orch = Orchestrator(cfg, log_path=log_file)
 
     split = "test"
     dataset_test = load_dataset("mkieffer/MEDEC", split=split)
 
-    loaded_indices = load_indices("/home/heewon/workspaces/courses/cs263nlp-26w/CS263-MEDIQA-CORR-2024/baseline-experiment/sampled_test_indices.json")
+    loaded_indices = load_indices("/home/heewon/workspaces/cs263nlp/CS263-MEDIQA-CORR-2024/baseline-experiment/sampled_test_indices.json")
     subset_test = dataset_test.select(loaded_indices)
     num_data = len(subset_test)
     
@@ -582,4 +627,3 @@ if __name__ == "__main__":
             out_text = orch.to_submission_line(final)
             print(out_text)
             f.write(out_text + "\n")
-

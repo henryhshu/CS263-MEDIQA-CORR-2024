@@ -1,0 +1,50 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 6 "Hemoglobin 14 g/dL"
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome (gastrinoma)."
+ms-test-67 1 16 "She has a low-frequency tremor in her right arm that increases in severity with deliberate movement (intention tremor), which is more characteristic of cerebellar dysfunction rather than Alzheimer dementia."
+ms-test-68 1 17 "The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 0 -1 NA
+ms-test-104 1 15 "Patient shows metabolic alkalosis (pH 7.50) and likely Bartter syndrome, but HCO3- should be elevated, not decreased as in this sentence. Corrected: HCO3- 30 mEq/L."
+ms-test-107 1 6 "| A sweat chloride test is normal, which makes cystic fibrosis unlikely, but the nitroblue tetrazolium test is for chronic granulomatous disease, not relevant to alpha-1 antitrypsin deficiency."
+ms-test-120 1 1 "She states that she has a hard time lifting both her arms and that they do not function normally."
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 0 -1 NA
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation and possible aortic and mitral valve disease, but not mitral stenosis alone."
+ms-test-207 0 -1 NA
+ms-test-217 1 27 "Patient is diagnosed with a febrile nonhemolytic transfusion reaction."
+ms-test-234 1 2 "Patient is diagnosed with X-linked agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "Pericardial window is performed, and while observing sinus tachycardia on the patient's telemetry, you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 0 -1 NA
+ms-test-267 1 4 "Despite this, you do not have an ethical obligation to continue care if it goes against your views, provided you give proper notice and facilitate transfer of care."
+ms-test-288 0 -1 NA
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 1 8 "Following tumor gene testing, the patient is found to be positive for the HER-2/neu oncogene, and trastuzumab therapy should be added to her treatment plan."
+ms-test-352 1 5 "Fludrocortisone is not administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis; instead, hydrocortisone or another glucocorticoid is typically used for perioperative steroid replacement."
+ms-test-358 1 2 "Immunosuppressive therapy is advised after laboratory results show an elevated level of cytoplasmic antineutrophil cytoplasmic antibody."
+ms-test-380 0 -1 NA
+ms-test-386 0 -1 NA
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "High-dose intravenous methylprednisolone is prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Starting a selective serotonin reuptake inhibitor (SSRI) or cognitive behavioral therapy is recommended for panic disorder, rather than quetiapine."
+ms-test-464 1 5 "| On physical examination, she has a grade 2/6 holosystolic murmur heard best at the left upper sternal border, bilateral bibasilar crackles on the lungs, and a normal abdominal examination. Corrected: On physical examination, she has a grade 2/6 holosystolic murmur heard best at the left lower sternal border, bilateral bibasilar crackles on the lungs, and a normal abdominal examination. (Rationale: A holosystolic murmur heard best at the left upper sternal border is not typical. Holosystolic murmurs are usually associated with mitral regurgitation (apex) or tricuspid regurgitation (left lower sternal border). The left upper sternal border is more commonly associated with murmurs like pulmonic flow murmurs or murmurs from ventricular septal defect, which are not described as holosystolic in this context.)"
+ms-test-465 1 14 "Oral nystatin is not effective for esophageal candidiasis; oral or intravenous fluconazole is the preferred treatment."
+ms-test-492 1 4 "She gives a printed list of such drugs including efavirenz and delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says bupropion should not be prescribed for this patient due to his history of seizures."
+ms-test-503 1 2 "Patient is given azithromycin after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 21 "The vasopressor and potentially nephrotoxic drugs are adjusted as clinically indicated."
+ms-test-570 1 6 "Oral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

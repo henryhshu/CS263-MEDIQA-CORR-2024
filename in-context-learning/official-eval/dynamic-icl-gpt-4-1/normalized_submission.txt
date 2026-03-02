@@ -1,0 +1,50 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 1 2 "The child is suspected to have severe combined immunodeficiency syndrome after examination of his serum shows decreased levels of IgG, and a CT scan reveals the absence of a thymus."
+ms-test-29 1 21 "Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 6 "Hemoglobin 14 g/dL"
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome (gastrinoma)."
+ms-test-67 1 16 "She has a low-frequency tremor in her right arm that increases in severity at rest."
+ms-test-68 1 17 "The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 1 5 "The patient is diagnosed with delirium due to infection after exam."
+ms-test-104 1 8 "Patient is diagnosed with Bartter syndrome given laboratory findings shown below: Patient is diagnosed with Gitelman syndrome given laboratory findings shown below:"
+ms-test-107 1 7 "Patient is diagnosed with alpha-1 antitrypsin deficiency after a complete blood count is significant for the following: Patient should not be diagnosed with alpha-1 antitrypsin deficiency based solely on the complete blood count findings provided; alpha-1 antitrypsin deficiency requires confirmation by low serum alpha-1 antitrypsin levels or genetic testing."
+ms-test-120 1 1 "She states that she has a hard time lifting both her arms but that they do not function normally."
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 1 6 "Fibrinous pericarditis is diagnosed."
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation."
+ms-test-207 1 13 "Hemoglobin 10 g/dL suggests anemia, which is more typical of secondary Sjogren's syndrome than primary Sjogren's syndrome; consider evaluation for an underlying autoimmune or hematologic condition."
+ms-test-217 1 6 "Gastric ultrasound is not routinely used in the diagnosis or management of upper gastrointestinal bleeding."
+ms-test-234 1 2 "Patient is diagnosed with X-linked agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "Pericardial window is performed, and while observing sinus tachycardia on the patient's telemetry, you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 1 10 "Vitamin B6 (pyridoxine) is administered when on follow-up, her laboratory parameters show no interval change in her MCV or platelet level."
+ms-test-267 1 4 "Despite this, you do not have to continue care if it goes against your views; you may transfer the patient to another qualified provider, ensuring continuity of care."
+ms-test-288 0 -1 NA
+ms-test-305 1 4 "Patient is started on combined vasoactive and endoscopic therapy after stabilization of his blood pressure."
+ms-test-331 0 -1 NA
+ms-test-344 1 8 "The patient is started on neoadjuvant chemotherapy and scheduled for a modified radical mastectomy. 10 Post-mastectomy, trastuzumab will be started."
+ms-test-352 1 5 "Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 0 -1 NA
+ms-test-380 1 5 "The physician maintains appropriate boundaries and addresses the patient's feelings in a professional and empathetic manner, but does not ask only closed-ended questions or use a chaperone unless there is a clinical reason to do so."
+ms-test-386 0 -1 NA
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "Intravenous methylprednisolone is prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Starting selective serotonin reuptake inhibitor (SSRI) and/or cognitive behavioral therapy (CBT)."
+ms-test-464 1 5 "On physical examination, she has a grade 2/6 holosystolic murmur heard best at the left lower sternal border, bilateral bibasilar crackles on the lungs, and a normal abdominal examination."
+ms-test-465 1 14 "Oral fluconazole is prescribed."
+ms-test-492 1 4 "She gives a printed list of such drugs including efavirenz and delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "Bupropion is contraindicated in patients with a history of seizures; the physician should not prescribe bupropion for this patient."
+ms-test-503 1 2 "Patient is given azithromycin after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 21 "No toxic drugs are identified or need to be removed."
+ms-test-570 1 6 "Oral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 1 5 "Graded exercise therapy is recommended when on exam, the patient's lower legs (below knee) have glossy skin with loss of hair."

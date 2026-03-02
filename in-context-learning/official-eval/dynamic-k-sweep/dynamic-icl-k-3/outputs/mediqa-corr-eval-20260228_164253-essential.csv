@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+/home/erinzhu234/CS263/CS263-MEDIQA-CORR-2024/in-context-learning/official-eval/dynamic-k-sweep/dynamic-icl-k-3/normalized_submission.txt,0.68,0.62,0.6813,0.6969,0.705,0.5333,0.6944

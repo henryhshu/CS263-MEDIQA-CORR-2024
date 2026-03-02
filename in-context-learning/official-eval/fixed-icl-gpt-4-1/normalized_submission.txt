@@ -1,0 +1,50 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 1 0 "A 3-year-old Cuban-American male has a history of recurrent bacterial, viral, and fungal infections."
+ms-test-29 1 21 "Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 4 "The differential diagnosis includes secondary bacterial pneumonia (e.g., Streptococcus pneumoniae, Staphylococcus aureus)."
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome (gastrinoma)."
+ms-test-67 1 16 "She has a low-frequency tremor in her right arm that decreases in severity with deliberate movement."
+ms-test-68 1 17 "The patient is diagnosed with dementia."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 0 -1 NA
+ms-test-104 1 15 "HCO3- 29 mEq/L"
+ms-test-107 1 7 "Patient is diagnosed with cystic fibrosis after a complete blood count is significant for the following:"
+ms-test-120 1 1 "She states that she has a hard time lifting both her arms and that they do not function normally."
+ms-test-121 1 6 "Patient is diagnosed with Trichomonas vaginalis infection after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 0 -1 NA
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation."
+ms-test-207 0 -1 NA
+ms-test-217 1 27 "Patient is diagnosed with a transfusion reaction, most likely an acute hemolytic transfusion reaction."
+ms-test-234 1 2 "Patient is diagnosed with X-linked agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "Pericardial window is performed and while observing sinus tachycardia on the patient's telemetry, you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 1 10 "Folate is administered when on follow-up, her laboratory parameters show no interval change in her MCV or hemoglobin level."
+ms-test-267 1 4 "Despite this, you should not continue care if it goes against your views; instead, you should arrange for the patient to be transferred to another qualified physician, ensuring continuity of care."
+ms-test-288 0 -1 NA
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 1 10 "Post-mastectomy, trastuzumab will be started."
+ms-test-352 1 5 "Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 0 -1 NA
+ms-test-380 0 -1 NA
+ms-test-386 0 -1 NA
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "Interferon beta or glatiramer acetate is prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Starting selective serotonin reuptake inhibitor (SSRI) or cognitive behavioral therapy (CBT)."
+ms-test-464 1 5 "On physical examination, she has a grade 2/6 holosystolic murmur heard best at the left lower sternal border, bilateral bibasilar crackles on the lungs, and a normal abdominal examination."
+ms-test-465 1 14 "Empiric antiviral therapy for herpes simplex virus or antifungal therapy for esophageal candidiasis with oral fluconazole is indicated, not nystatin."
+ms-test-492 1 4 "She gives a printed list of such drugs including efavirenz and delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says bupropion is contraindicated for this patient due to his history of seizures."
+ms-test-503 1 2 "Patient is given macrolide antibiotics (such as azithromycin or erythromycin) after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 21 "The vasopressors are weaned as appropriate."
+ms-test-570 1 6 "Oral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

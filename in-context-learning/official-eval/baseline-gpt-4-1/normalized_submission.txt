@@ -1,0 +1,50 @@
+ms-test-17 1 4 "| Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "Limited cutaneous systemic scleroderma is suspected. | Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 6 "Hemoglobin 14 g/dL"
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome (gastrinoma) causing multiple duodenal ulcers and hypercalcemia."
+ms-test-67 1 15 "The patient is diagnosed with Alzheimer dementia after she can recall 0/3 words after 5 minutes, but her acute onset of disorientation, impaired recognition of familiar people, fluctuating alertness, and somnolence are more consistent with delirium rather than Alzheimer dementia."
+ms-test-68 1 17 "The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 1 3 "Despite these behaviors, he is meeting his language goals for his age (single word use), which is expected for a 1-year-old but not for a 3-year-old, in whom phrase speech or short sentences should be present."
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 1 5 "The patient is diagnosed with delirium, not delirium tremens, after exam."
+ms-test-104 1 8 "Patient is diagnosed with Bartter syndrome given laboratory findings shown below: | Patient is diagnosed with Bartter syndrome given laboratory findings shown below; however, the laboratory findings of metabolic alkalosis (pH 7.50), hypokalemia (serum potassium 3.3 mEq/L), and hypomagnesemia (serum magnesium 1.3 mEq/L) are more consistent with Gitelman syndrome than Bartter syndrome, which typically does not present with hypomagnesemia."
+ms-test-107 1 7 "Patient is diagnosed with alpha-1 antitrypsin deficiency after a complete blood count is significant for the following: Corrected version: Patient is not likely to have alpha-1 antitrypsin deficiency since the sweat chloride test is normal and there is no evidence of neonatal liver disease; cystic fibrosis should be reconsidered despite a normal sweat chloride, or an alternative diagnosis such as primary ciliary dyskinesia should be considered."
+ms-test-120 1 1 "She states that she has a hard time lifting both her arms but that they do not function normally."
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 0 -1 NA
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation, aortic stenosis, and mitral stenosis based on the described murmurs, though the presence of an early diastolic murmur at the left sternal border and bounding pulses are especially suggestive of aortic regurgitation."
+ms-test-207 0 -1 NA
+ms-test-217 1 27 "Patient is diagnosed with a febrile nonhemolytic transfusion reaction. Explanation: The correct terminology for a transfusion reaction with fever and chills in the setting of blood transfusion, in the absence of hemolysis, is \"febrile nonhemolytic transfusion reaction\" rather than just \"febrile nonhemolytic reaction.\""
+ms-test-234 1 2 "Patient is diagnosed with agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "Pericardial window is performed, and while observing sinus tachycardia on the patient's telemetry, you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 0 -1 NA
+ms-test-267 0 -1 NA
+ms-test-288 0 -1 NA
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 1 10 "Post-masectomy, trastuzumab will be started instead of anastrozole, as trastuzumab is the appropriate targeted therapy for HER-2/neu positive breast cancer."
+ms-test-352 1 5 "Fludrocortisone is not used to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis; hydrocortisone (a glucocorticoid) should be administered instead following pituitary surgery to prevent adrenal insufficiency."
+ms-test-358 0 -1 NA
+ms-test-380 0 -1 NA
+ms-test-386 0 -1 NA
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "A course of high-dose corticosteroids is prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Starting an SSRI or cognitive behavioral therapy would be the preferred first-line treatment for panic disorder rather than quetiapine."
+ms-test-464 0 -1 NA
+ms-test-465 1 14 "Oral fluconazole is prescribed."
+ms-test-492 1 4 "She gives a printed list of such drugs including efavirenz and delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says he may prescribe bupropion for the patient after a full neurological workup is performed, as bupropion is contraindicated in patients with a history of seizures."
+ms-test-503 1 2 "Patient is given azithromycin after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 21 "The toxic drugs are discontinued."
+ms-test-570 1 6 "| Oral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

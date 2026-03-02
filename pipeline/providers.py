@@ -59,14 +59,19 @@ class GeminiProvider(LLMProvider):
             )
 
         genai.configure(api_key=api_key)
+        self._genai = genai
         self._model_name = model_name
-        self._model = genai.GenerativeModel(model_name)
         logger.info(f"GeminiProvider initialized: {model_name}")
 
     def generate(self, user_prompt: str, system_prompt: str = "") -> str:
-        """Generate a response using Gemini."""
-        full_prompt = f"{system_prompt}\n\n{user_prompt}" if system_prompt else user_prompt
-        response = self._model.generate_content(full_prompt)
+        """Generate a response using Gemini with proper system_instruction."""
+        # Use system_instruction parameter — this is critical for Gemini's
+        # performance vs concatenating system+user into one prompt string.
+        model = self._genai.GenerativeModel(
+            model_name=self._model_name,
+            system_instruction=system_prompt if system_prompt else None,
+        )
+        response = model.generate_content(user_prompt)
         return response.text.strip() if response.text else ""
 
     @property

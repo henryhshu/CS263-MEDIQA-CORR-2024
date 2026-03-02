@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+../baseline-experiment/outputs/medec-ms_gpt-5.2-pro_results_20260228_165233.txt,0.66,0.54,0.4757,0.5211,0.5876,0.4052,0.5281

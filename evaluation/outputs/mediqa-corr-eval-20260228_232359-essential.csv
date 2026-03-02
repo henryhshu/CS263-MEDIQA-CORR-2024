@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+../multi-agent/outputs/medec_multi-agent_submission_test_20260228_231606.txt,0.76,0.7,0.6981,0.728,0.7221,0.6067,0.7161

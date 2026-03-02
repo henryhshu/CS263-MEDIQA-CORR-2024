@@ -1,0 +1,5 @@
+ms-test-17 1 4 "| Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 6 "| Hemoglobin 14 g/dL"
+ms-test-45 1 4 "| The patient is diagnosed with polyarteritis nodosa."

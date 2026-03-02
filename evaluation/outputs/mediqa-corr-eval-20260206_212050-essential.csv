@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+../baseline-experiment/outputs/medec-ms_gpt4_1_results_20260205_180349.txt,0.76,0.74,0.633,0.6059,0.6959,0.6038,0.6449

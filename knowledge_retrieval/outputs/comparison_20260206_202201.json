@@ -1,0 +1,194 @@
+{
+  "config": {
+    "model_name": "gemini-2.5-flash",
+    "num_samples": 10,
+    "use_sampled_indices": true,
+    "sampled_indices_path": "../baseline-experiment/sampled_test_indices.json",
+    "output_dir": "outputs",
+    "rate_limit_delay": 0.5
+  },
+  "timestamp": "20260206_202201",
+  "baseline_metrics": {
+    "total_samples": 10,
+    "error_flag_correct": 8,
+    "error_flag_accuracy": 0.8,
+    "sentence_id_correct": 7,
+    "sentence_id_accuracy": 0.7
+  },
+  "rag_metrics": {
+    "total_samples": 10,
+    "error_flag_correct": 8,
+    "error_flag_accuracy": 0.8,
+    "sentence_id_correct": 7,
+    "sentence_id_accuracy": 0.7
+  },
+  "improvement": {
+    "error_flag_accuracy": 0.0,
+    "sentence_id_accuracy": 0.0
+  },
+  "predictions": [
+    {
+      "text_id": "ms-test-17",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "Mycobacterium tuberculosis is suspected."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "| Mycobacterium tuberculosis is suspected.",
+        "extracted_drugs": []
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-22",
+      "baseline": {
+        "error_flag": 0,
+        "sentence_id": -1,
+        "corrected": null
+      },
+      "rag": {
+        "error_flag": 0,
+        "sentence_id": -1,
+        "corrected": null,
+        "extracted_drugs": []
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-29",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 21,
+        "corrected": "| Diffuse cutaneous systemic scleroderma is suspected."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 21,
+        "corrected": "Diffuse cutaneous systemic scleroderma is suspected.",
+        "extracted_drugs": [
+          "hydralazine"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-43",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 6,
+        "corrected": "| Hemoglobin 14 g/dL"
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 6,
+        "corrected": "| Hemoglobin 14 g/dL",
+        "extracted_drugs": []
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-45",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "The patient is diagnosed with polyarteritis nodosa."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "| The patient is diagnosed with polyarteritis nodosa.",
+        "extracted_drugs": []
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-53",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 13,
+        "corrected": "Patient is diagnosed with Zollinger-Ellison syndrome."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 13,
+        "corrected": "| Patient is diagnosed with Zollinger-Ellison syndrome.",
+        "extracted_drugs": [
+          "calcium",
+          "upper",
+          "bicarbonate"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-67",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 15,
+        "corrected": "| Her recall of 0/3 words after 5 minutes indicates significant memory impairment, consistent with dementia."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 15,
+        "corrected": "The patient's inability to recall 0/3 words after 5 minutes indicates severe memory impairment, a finding consistent with dementia.",
+        "extracted_drugs": [
+          "wine",
+          "alzheimer"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-68",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 17,
+        "corrected": "The patient is diagnosed with delirium."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 17,
+        "corrected": "The patient is diagnosed with delirium.",
+        "extracted_drugs": [
+          "wine"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-74",
+      "baseline": {
+        "error_flag": 0,
+        "sentence_id": -1,
+        "corrected": null
+      },
+      "rag": {
+        "error_flag": 0,
+        "sentence_id": -1,
+        "corrected": null,
+        "extracted_drugs": []
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-82",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 3,
+        "corrected": "| Despite these behaviors, he is not meeting his language goals for his age (single word use)."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 3,
+        "corrected": "| Despite these behaviors, he is delayed in his language development for his age (single word use).",
+        "extracted_drugs": [
+          "autism"
+        ]
+      },
+      "different": false
+    }
+  ]
+}

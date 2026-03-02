@@ -1,0 +1,50 @@
+ms-test-17 1 4 "Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 0 -1 NA
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome (gastrinoma)."
+ms-test-67 1 15 "The patient is diagnosed with dementia after she can recall 0/3 words after 5 minutes, but further evaluation is needed to determine the specific cause, such as Alzheimer disease or another etiology."
+ms-test-68 1 17 "The patient is diagnosed with dementia."
+ms-test-74 0 -1 NA
+ms-test-82 0 -1 NA
+ms-test-92 0 -1 NA
+ms-test-95 0 -1 NA
+ms-test-98 1 5 "The patient is diagnosed with delirium after exam."
+ms-test-104 1 8 "Patient is diagnosed with Gitelman syndrome given laboratory findings shown below:"
+ms-test-107 1 7 "Patient is diagnosed with alpha-1 antitrypsin deficiency after a complete blood count and confirmatory tests, such as serum alpha-1 antitrypsin level and genotyping, are performed."
+ms-test-120 0 -1 NA
+ms-test-121 1 6 "Patient is diagnosed with trichomoniasis after her pelvic exam; she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 0 -1 NA
+ms-test-134 0 -1 NA
+ms-test-142 0 -1 NA
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "Patient is diagnosed with aortic regurgitation."
+ms-test-207 0 -1 NA
+ms-test-217 1 27 "Patient is diagnosed with a febrile reaction most consistent with a delayed hemolytic or other transfusion reaction, as febrile nonhemolytic reactions are less common with massive transfusion and her symptoms could also suggest acute hemolytic transfusion reaction due to ABO incompatibility."
+ms-test-234 1 2 "Patient is diagnosed with agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "A pericardial window is performed, and while observing sinus tachycardia on the patient's telemetry, you note that the radial pulse cannot be palpated during inspiration."
+ms-test-265 0 -1 NA
+ms-test-267 0 -1 NA
+ms-test-288 0 -1 NA
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 1 10 "Post-mastectomy, trastuzumab will be started due to HER-2/neu positivity."
+ms-test-352 1 5 "Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 1 2 "Immunosuppressive therapy is indicated after laboratory results show an elevated level of cytoplasmic antineutrophil cytoplasmic antibody."
+ms-test-380 0 -1 NA
+ms-test-386 0 -1 NA
+ms-test-391 0 -1 NA
+ms-test-414 1 10 "Corticosteroids are prescribed."
+ms-test-444 0 -1 NA
+ms-test-454 1 7 "Starting an SSRI or cognitive behavioral therapy would be appropriate first-line treatments for panic disorder, not quetiapine."
+ms-test-464 0 -1 NA
+ms-test-465 1 14 "Oral fluconazole is prescribed."
+ms-test-492 1 4 "She gives a printed list of such drugs including efavirenz and delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says he may prescribe varenicline for the patient after a full cardiac workup is performed."
+ms-test-503 1 2 "Patient is given azithromycin after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 21 "No toxic drugs are reported to have been administered, so there are no toxic drugs to be removed."
+ms-test-570 1 6 "Oral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

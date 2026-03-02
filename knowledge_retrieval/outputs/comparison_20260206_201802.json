@@ -1,0 +1,135 @@
+{
+  "config": {
+    "model_name": "gemini-2.5-flash",
+    "num_samples": 5,
+    "use_sampled_indices": true,
+    "sampled_indices_path": "../baseline-experiment/sampled_test_indices.json",
+    "output_dir": "outputs",
+    "rate_limit_delay": 0.5
+  },
+  "timestamp": "20260206_201802",
+  "baseline_metrics": {
+    "total_samples": 5,
+    "error_flag_correct": 5,
+    "error_flag_accuracy": 1.0,
+    "sentence_id_correct": 4,
+    "sentence_id_accuracy": 0.8
+  },
+  "rag_metrics": {
+    "total_samples": 5,
+    "error_flag_correct": 5,
+    "error_flag_accuracy": 1.0,
+    "sentence_id_correct": 4,
+    "sentence_id_accuracy": 0.8
+  },
+  "improvement": {
+    "error_flag_accuracy": 0.0,
+    "sentence_id_accuracy": 0.0
+  },
+  "predictions": [
+    {
+      "text_id": "ms-test-17",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "Mycobacterium tuberculosis is suspected."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "| Mycobacterium tuberculosis is suspected.",
+        "extracted_drugs": [
+          "past",
+          "mycobacterium"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-22",
+      "baseline": {
+        "error_flag": 0,
+        "sentence_id": -1,
+        "corrected": null
+      },
+      "rag": {
+        "error_flag": 0,
+        "sentence_id": -1,
+        "corrected": null,
+        "extracted_drugs": [
+          "cuban-american",
+          "candida",
+          "pseudomonas"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-29",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 21,
+        "corrected": "| Diffuse cutaneous systemic scleroderma is suspected."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 21,
+        "corrected": "Diffuse cutaneous systemic scleroderma is suspected.",
+        "extracted_drugs": [
+          "hemoglobin",
+          "platelets",
+          "leucocytes",
+          "limited",
+          "antibody",
+          "hydralazine",
+          "temperature",
+          "anti",
+          "complete"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-43",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 6,
+        "corrected": "| Hemoglobin 14 g/dL"
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 6,
+        "corrected": "| Hemoglobin 14 g/dL",
+        "extracted_drugs": [
+          "neutrophils",
+          "hemoglobin",
+          "platelet",
+          "chest",
+          "monocytes",
+          "hematocrit",
+          "leukocyte",
+          "lymphocytes"
+        ]
+      },
+      "different": false
+    },
+    {
+      "text_id": "ms-test-45",
+      "baseline": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "| The patient is diagnosed with polyarteritis nodosa."
+      },
+      "rag": {
+        "error_flag": 1,
+        "sentence_id": 4,
+        "corrected": "| The patient is diagnosed with polyarteritis nodosa.",
+        "extracted_drugs": [
+          "hepatitis",
+          "chart"
+        ]
+      },
+      "different": false
+    }
+  ]
+}

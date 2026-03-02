@@ -1,5 +1,11 @@
 # Multi-agent experiment results
 
+## How to run the code?
+gpt-4.1 shows the best performance compare to gpt-5, gpt-5.2
+```
+$ python multi-agent/multi-agent-detect-critic-edit.py --split test --detector_model gpt-4.1 --critic_model gpt-4.1 --editor_model gpt-4.1
+```
+
 ## Result
 The evaluation results are based on a random sample of 50 data samples to reduce API usage costs.
 | Model | Error Flag Accuracy | Error Sentence Detection Accuracy | ROUGE1 | BERTSCORE | BLEURT | AggregateComposite | AggregateScore |

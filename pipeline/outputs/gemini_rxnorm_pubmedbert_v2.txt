@@ -1,0 +1,50 @@
+ms-test-17 1 4 "| Mycobacterium tuberculosis is suspected."
+ms-test-22 0 -1 NA
+ms-test-29 1 21 "| Diffuse cutaneous systemic scleroderma is suspected."
+ms-test-43 1 6 "| Hemoglobin 14 g/dL"
+ms-test-45 1 4 "The patient is diagnosed with polyarteritis nodosa."
+ms-test-53 1 13 "Patient is diagnosed with Zollinger-Ellison syndrome."
+ms-test-67 1 15 "| The patient's inability to recall 0/3 words after 5 minutes suggests severe memory impairment, a feature seen in Alzheimer dementia, but does not solely establish the diagnosis."
+ms-test-68 1 17 "| The patient is diagnosed with delirium."
+ms-test-74 0 -1 NA
+ms-test-82 1 3 "| Despite these behaviors, he is not meeting his language goals for his age (a 3-year-old typically uses 3-word sentences)."
+ms-test-92 0 -1 NA
+ms-test-95 1 4 "| She takes prednisone, calcium, alendronic acid, and hydroxychloroquine."
+ms-test-98 0 -1 NA
+ms-test-104 1 15 "HCO3- 35 mEq/L"
+ms-test-107 1 7 "| Patient is diagnosed with alpha-1 antitrypsin deficiency. A complete blood count and liver function tests showed the following:"
+ms-test-120 1 7 "| Patient is diagnosed with dermatomyositis after labs are drawn, including elevated muscle enzymes, and a complete blood count and basic metabolic panel are normal."
+ms-test-121 1 6 "| Patient is diagnosed with Trichomoniasis after her pelvic exam, she has vulvovaginal erythema and a 'strawberry cervix' that is tender to motion, with minimal green-yellow malodorous discharge."
+ms-test-130 1 6 "| Acute pericarditis is diagnosed."
+ms-test-134 1 9 "| Magnesium (Mn2+) 1.5 mg/dL"
+ms-test-142 1 5 "| A systolic murmur is present."
+ms-test-178 0 -1 NA
+ms-test-183 1 7 "| Patient is diagnosed with aortic regurgitation, aortic stenosis, and mitral stenosis."
+ms-test-207 0 -1 NA
+ms-test-217 1 23 "| After bedside esophagogastroduodenoscopy with endoscopic hemostasis of several peptic ulcers, repeat labs are obtained in 2 hours."
+ms-test-234 1 2 "Patient is diagnosed with X-linked agammaglobulinemia after lab investigations reveal an undetectable level of all serum immunoglobulins."
+ms-test-242 1 7 "| Patient is diagnosed with advanced sleep phase disorder."
+ms-test-254 1 2 "| Observing sinus tachycardia on the patient's telemetry and noting that the radial pulse cannot be palpated during inspiration, a pericardial window is performed."
+ms-test-265 1 10 "Further investigation for refractory iron deficiency is initiated when on follow-up, her laboratory parameters show no interval change in her MCV or platelet level."
+ms-test-267 0 -1 NA
+ms-test-288 0 -1 NA
+ms-test-305 0 -1 NA
+ms-test-331 0 -1 NA
+ms-test-344 1 8 "| The patient is started on neoadjuvant chemotherapy and scheduled for a modified radical mastectomy."
+ms-test-352 1 5 "| Hydrocortisone is administered to ensure normal functioning of her hypothalamic-pituitary-adrenal (HPA) axis."
+ms-test-358 1 2 "| Immunosuppressive therapy for granulomatosis with polyangiitis is initiated after laboratory results show an elevated level of cytoplasmic antineutrophil cytoplasmic antibody."
+ms-test-380 1 5 "| The physician establishes clear professional boundaries and uses a chaperone for future visits."
+ms-test-386 1 11 "| An urgent MRI of the spine is ordered and 1270 mL of urine is collected after placing a Foley catheter."
+ms-test-391 1 4 "The physical examination reveals a heart rate of 50/min and blood pressure of 100/50 mm Hg."
+ms-test-414 1 10 "| Corticosteroids are prescribed."
+ms-test-444 1 9 "| However, he returns to clinic 3 months later complaining of decreased libido and enlarged breast tissue, symptoms not commonly associated with lansoprazole, lisinopril, or rosuvastatin."
+ms-test-454 1 7 "| Starting sertraline."
+ms-test-464 1 5 "| On physical examination, she has a grade 2/6 holosystolic murmur heard best at the left lower sternal border, bilateral bibasilar crackles on the lungs, and a normal abdominal examination."
+ms-test-465 1 14 "Oral fluconazole is prescribed."
+ms-test-492 1 4 "| She gives a printed list of such drugs including delavirdine to the woman for educational and informational purposes."
+ms-test-494 1 9 "The physician says he cannot prescribe bupropion for the patient due to his history of seizure episodes."
+ms-test-503 1 2 "| Patient is given azithromycin after a cold agglutination test conducted on her blood shows clumping together when placed at 4 degrees Celsius."
+ms-test-504 0 -1 NA
+ms-test-525 1 4 "| Current medications include norepinephrine, ceftriaxone, and acetaminophen 300 MG / oxycodone hydrochloride 10 MG Oral Tablet."
+ms-test-570 1 6 "| Peroral metronidazole is prescribed after the gynecologic examination shows increased production of a white-yellow vaginal discharge."
+ms-test-585 0 -1 NA

@@ -23,6 +23,11 @@ from dotenv import load_dotenv
 from datasets import load_dataset
 import google.generativeai as genai
 
+# Suppress noisy HTTP request logging from httpx/transformers
+import logging
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("huggingface_hub").setLevel(logging.WARNING)
+
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from knowledge_retrieval.rxnorm_rag import RxNormRAGContext, DrugInfo
@@ -41,6 +46,7 @@ class ExperimentConfig:
     sampled_indices_path: str = "../baseline-experiment/sampled_test_indices.json"
     output_dir: str = "outputs"
     rate_limit_delay: float = 1.0  # seconds between API calls
+    extractor_type: str = "pubmedbert"  # "pubmedbert" or "regex"
     
 
 # =============================================================================
@@ -154,7 +160,7 @@ class ExperimentRunner:
     def __init__(self, config: ExperimentConfig):
         """Initialize the experiment runner."""
         self.config = config
-        self.rag = RxNormRAGContext()
+        self.rag = RxNormRAGContext(extractor_type=config.extractor_type)
         
         # Load environment variables
         env_path = Path(__file__).parent.parent / ".env"
@@ -178,7 +184,7 @@ class ExperimentRunner:
         
     def load_dataset(self) -> list:
         """Load and prepare the dataset."""
-        dataset = load_dataset("mkieffer/MEDEC", split="test")
+        dataset = load_dataset("mkieffer/MEDEC-MS", split="test")
         
         if self.config.use_sampled_indices:
             indices_path = Path(__file__).parent / self.config.sampled_indices_path
@@ -509,6 +515,15 @@ def parse_args():
         "--rate_limit", "-r", type=float, default=1.0,
         help="Delay between API calls in seconds (default: 1.0)"
     )
+    parser.add_argument(
+        "--extractor", "-e", type=str, default="pubmedbert",
+        choices=["pubmedbert", "regex"],
+        help="Drug name extractor: 'pubmedbert' (NER model) or 'regex' (legacy). Default: pubmedbert"
+    )
+    parser.add_argument(
+        "--full", action="store_true",
+        help="Run on the full test set instead of the sampled subset"
+    )
     return parser.parse_args()
 
 
@@ -518,7 +533,9 @@ if __name__ == "__main__":
     config = ExperimentConfig(
         model_name=args.model,
         num_samples=args.num_samples,
-        rate_limit_delay=args.rate_limit
+        rate_limit_delay=args.rate_limit,
+        extractor_type=args.extractor,
+        use_sampled_indices=not args.full
     )
     
     runner = ExperimentRunner(config)

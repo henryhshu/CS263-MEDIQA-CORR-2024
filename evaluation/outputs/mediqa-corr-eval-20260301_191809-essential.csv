@@ -1,0 +1,2 @@
+submission_file,Error Flags Accuracy,Error Sentence Detection Accuracy,ROUGE1,BERTSCORE,BLEURT,AggregateComposite,AggregateScore
+../../CS263-MEDIQA-CORR-2024-rx-norm-rag-03-01/pipeline/outputs/gemini_rxnorm_pubmedbert_v2.txt,0.76,0.64,0.5825,0.6162,0.641,0.5512,0.6132

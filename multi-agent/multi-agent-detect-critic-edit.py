@@ -8,8 +8,6 @@ from openai import OpenAI
 from pydantic import BaseModel, Field
 from tqdm import tqdm
 
-
-
 from pathlib import Path
 
 def load_api_key_from_file(path: Path) -> str:
@@ -189,7 +187,7 @@ def to_sentences_block(sents: List[Dict[str, Any]]) -> str:
     return "\n".join([f'{x["id"]} | {x["sentence"]}' for x in sents])
 
 
-def call_parse(client: OpenAI, model: str, instructions: str, user_input: str, schema):
+def call_parse(client: OpenAI, model: str, instructions: str, user_input: str, schema, agent_role: str):
     # Structured Outputs via responses.parse
     resp = client.responses.parse(
         model=model,
@@ -197,7 +195,12 @@ def call_parse(client: OpenAI, model: str, instructions: str, user_input: str, s
         input=user_input,
         text_format=schema,
     )
+    # print(f"AGENT ROLE: {agent_role}")
+    # print(f"MODEL: {model}")
+    # print(f"Instruction:\n{instructions}")
+    # print(f"User Input:\n{user_input}")
     parsed = resp.output_parsed
+    # print(parsed)
     if parsed is None:
         return schema.model_validate_json(resp.output_text)
     return parsed
@@ -265,6 +268,7 @@ def run_one(client: OpenAI, row: Dict[str, Any], cfg: Config) -> str:
         DETECTOR_INSTRUCTIONS,
         detector_prompt(sentences_block),
         DetectorOut,
+        "Detector"
     )
 
     if det.verdict == "CORRECT" or det.error_sentence_id == -1:
@@ -289,6 +293,7 @@ def run_one(client: OpenAI, row: Dict[str, Any], cfg: Config) -> str:
             CRITIC_INSTRUCTIONS,
             critic_prompt(sentences_block, single),
             CriticOut,
+            "Critic1"
         )
         if critic1.overall_recommendation == "choose_rank_1":
             return to_submission_line(text_id, 1, sid, corrected)
@@ -300,6 +305,7 @@ def run_one(client: OpenAI, row: Dict[str, Any], cfg: Config) -> str:
         EDITOR_INSTRUCTIONS,
         editor_prompt(sentences_block, sid, id2sent[sid], n=cfg.n_best),
         EditorOut,
+        "Editor"
     )
     critic2: CriticOut = call_parse(
         client,
@@ -307,6 +313,7 @@ def run_one(client: OpenAI, row: Dict[str, Any], cfg: Config) -> str:
         CRITIC_INSTRUCTIONS,
         critic_prompt(sentences_block, editor_out),
         CriticOut,
+        "Critic2"
     )
     final_corrected = pick_recommended(editor_out, critic2)
     if not final_corrected:
@@ -329,6 +336,7 @@ def main():
     parser.add_argument("--critic_model", type=str, default="gpt-5.2")
     parser.add_argument("--editor_model", type=str, default="gpt-5.2")
     parser.add_argument("--n_best", type=int, default=3)
+    parser.add_argument("--simple_indices", type=str, default="baseline-experiment/sampled_test_indices.json")
     args = parser.parse_args()
 
     if not os.environ.get("OPENAI_API_KEY"):
@@ -340,7 +348,7 @@ def main():
     # if args.limit and args.limit > 0:
     #     ds = ds.select(range(min(args.limit, len(ds))))
 
-    loaded_indices = load_indices("/home/heewon/workspaces/cs263nlp/CS263-MEDIQA-CORR-2024/baseline-experiment/sampled_test_indices.json")
+    loaded_indices = load_indices(args.simple_indices)
     ds = ds.select(loaded_indices)
     num_data = len(ds)
     

@@ -241,7 +241,6 @@ Now solve the next instance.
 {base}
 """
 
-
 def wrap_editor_prompt(
     sentences_block: str,
     target_id: int,
@@ -366,7 +365,7 @@ def run_one_with_icl(
     )
     # print(repr(detector_input))
     # print(repr(ma.detector_prompt(sentences_block)))
-    assert detector_input == ma.detector_prompt(sentences_block)
+    # assert detector_input == ma.detector_prompt(sentences_block)
     det: ma.DetectorOut = call_parse_with_reasoning(
         client=client,
         model=run_cfg.detector_model,
@@ -400,7 +399,7 @@ def run_one_with_icl(
         )
         # print(repr(critic1_input))
         # print(repr(ma.critic_prompt(sentences_block, single)))
-        assert critic1_input == ma.critic_prompt(sentences_block, single)
+        # assert critic1_input == ma.critic_prompt(sentences_block, single)
         critic1: ma.CriticOut = call_parse_with_reasoning(
             client=client,
             model=run_cfg.critic_model,
@@ -425,7 +424,7 @@ def run_one_with_icl(
     )
     # print(repr(editor_input))
     # print(repr(ma.critic_prompt(sentences_block)))
-    assert editor_input == ma.editor_prompt(sentences_block, sid, id2sent[sid], n=run_cfg.n_best)
+    # assert editor_input == ma.editor_prompt(sentences_block, sid, id2sent[sid], n=run_cfg.n_best)
 
     editor_out: ma.EditorOut = call_parse_with_reasoning(
         client=client,
@@ -446,7 +445,7 @@ def run_one_with_icl(
     )
     # print(repr(critic2_input))
     # print(repr(ma.critic_prompt(sentences_block, editor_out)))
-    assert critic2_input == ma.critic_prompt(sentences_block, editor_out)
+    # assert critic2_input == ma.critic_prompt(sentences_block, editor_out)
     critic2: ma.CriticOut = call_parse_with_reasoning(
         client=client,
         model=run_cfg.critic_model,

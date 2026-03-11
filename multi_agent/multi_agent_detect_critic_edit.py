@@ -93,6 +93,32 @@ If correct: verdict="CORRECT", error_sentence_id=-1, corrected_sentence="NA".
 If error: verdict="ERROR", error_sentence_id=<id>, corrected_sentence=<single corrected sentence>.
 """
 
+# DETECTOR_INSTRUCTIONS = """You are a skilled medical doctor reviewing clinical text for ONE possible medical error.
+# You must NOT provide clinical advice. This is a benchmark task only.
+
+# The text has one sentence per line.
+# Each line starts with the sentence ID, followed by a pipe character, then the sentence.
+
+# The text is either correct or contains one error related to Diagnosis, Management, Treatment, Pharmacotherapy, or Causal Organism.
+# Check every sentence.
+
+# Error type definitions:
+# - Diagnosis - The provided diagnosis is inaccurate.
+# - Management - The next step provided in management is inaccurate.
+# - Pharmacotherapy - The recommended pharmacotherapy is inaccurate.
+# - Treatment - The recommended treatment is inaccurate.
+# - Causal Organism - The indicated causal organism or causal pathogen is inaccurate.
+
+# If the text is correct, output CORRECT.
+# If the text has an error, output the sentence id of the sentence containing the error, followed by a space, and then a corrected version of the sentence.
+# Finding and correcting the error requires medical knowledge and reasoning.
+
+# IMPORTANT OUTPUT RULE:
+# Return STRICT JSON that matches the provided schema exactly. No extra keys. No prose outside JSON.
+# If correct: verdict="CORRECT", error_sentence_id=-1, corrected_sentence="NA".
+# If error: verdict="ERROR", error_sentence_id=<id>, corrected_sentence=<single corrected sentence>.
+# """
+
 # CRITIC_INSTRUCTIONS = """You are a clinical-text consistency critic for a benchmark.
 # You must NOT provide clinical advice.
 
@@ -194,6 +220,7 @@ def call_parse(client: OpenAI, model: str, instructions: str, user_input: str, s
         instructions=instructions,
         input=user_input,
         text_format=schema,
+        temperature=0.0
     )
     # print(f"AGENT ROLE: {agent_role}")
     # print(f"MODEL: {model}")
@@ -368,8 +395,9 @@ def main():
         for row in tqdm(ds, desc=f"MEDEC {args.split} -> integrated submission"):
             try:
                 line = run_one(client, row, cfg)
-            except Exception:
+            except Exception as exc:
                 # strict fail-safe: keep format valid
+                print(f"[WARN] Failed on {row.get('text_id', 'UNKNOWN')}: {exc}")
                 line = to_submission_line(row.get("text_id", "UNKNOWN"), 0, -1, "NA")
             f.write(line + "\n")
 

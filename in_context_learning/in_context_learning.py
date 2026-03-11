@@ -756,6 +756,7 @@ def run_mode(
             output_text = call_openai_response(
                 model=model,
                 messages=messages,
+                temperature=0.0,
                 reasoning_effort=reasoning_effort,
             )
             error_flag, sentence_id, corrected_sentence = parse_model_output(output_text)
